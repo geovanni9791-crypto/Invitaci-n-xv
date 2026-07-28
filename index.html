@@ -182,7 +182,7 @@
       background: rgba(255, 255, 255, 0.7);
       border: 1px solid rgba(199, 162, 75, 0.4);
       border-radius: 12px;
-      padding: 28px 20px;
+      padding: 28px 15px;
       margin: 35px 0;
       box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     }
@@ -190,7 +190,7 @@
     .honor-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
+      gap: 20px;
     }
 
     .honor-block h3 {
@@ -204,10 +204,16 @@
     }
 
     .honor-block p {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--olive-dark);
       line-height: 1.5;
       font-weight: 400;
+    }
+
+    .single-line-name {
+      white-space: nowrap;
+      font-size: 1.05rem; /* Se ajusta ligeramente para asegurar que entre en móviles sin romperse */
+      display: block;
     }
 
     /* --- FECHA DE CABECERA --- */
@@ -457,7 +463,7 @@
     /* --- RESPONSIVE --- */
     @media (max-width: 600px) {
       .card {
-        padding: 45px 20px;
+        padding: 45px 15px;
       }
       .name-title {
         font-size: 3.8rem;
@@ -469,6 +475,9 @@
       .honor-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+      }
+      .single-line-name {
+        font-size: 0.92rem; /* Talla perfecta para pantallas estrechas sin romper renglón */
       }
       .countdown-container {
         grid-template-columns: repeat(2, 1fr);
@@ -513,11 +522,17 @@
         <div class="honor-grid">
           <div class="honor-block">
             <h3>Mis Papás</h3>
-            <p>José Guadalupe Rodríguez Hernández<br>Romelia Palos Gómez</p>
+            <p>
+              <span class="single-line-name">José Guadalupe Rodríguez Hernández</span>
+              Romelia Palos Gómez
+            </p>
           </div>
           <div class="honor-block">
             <h3>Mis Padrinos</h3>
-            <p>Jennifer Guadalupe Rodríguez Palos<br>Jesús Emmanuel Montes Gamboa</p>
+            <p>
+              Jennifer Guadalupe Rodríguez Palos<br>
+              Jesús Emmanuel Montes Gamboa
+            </p>
           </div>
         </div>
       </div>
