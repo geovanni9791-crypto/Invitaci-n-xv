@@ -143,36 +143,7 @@
       letter-spacing: 7px;
       color: var(--gold-dark);
       text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    /* --- BLOQUE DINÁMICO DE INVITADO --- */
-    .guest-welcome-box {
-      background: rgba(54, 69, 43, 0.05);
-      border: 1px dashed var(--gold-main);
-      border-radius: 10px;
-      padding: 14px 20px;
-      margin: 20px auto 25px;
-      max-width: 450px;
-    }
-
-    .guest-label {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      font-weight: 600;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .guest-name-display {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      color: var(--olive-dark);
-      font-weight: 600;
-      line-height: 1.2;
+      margin-bottom: 25px;
     }
 
     .divider {
@@ -180,7 +151,7 @@
       align-items: center;
       justify-content: center;
       gap: 15px;
-      margin: 25px auto;
+      margin: 30px auto;
       max-width: 250px;
     }
 
@@ -241,7 +212,7 @@
 
     .single-line-name {
       white-space: nowrap;
-      font-size: 1.05rem;
+      font-size: 1.05rem; /* Se ajusta ligeramente para asegurar que entre en móviles sin romperse */
       display: block;
     }
 
@@ -506,7 +477,7 @@
         gap: 20px;
       }
       .single-line-name {
-        font-size: 0.92rem;
+        font-size: 0.92rem; /* Talla perfecta para pantallas estrechas sin romper renglón */
       }
       .countdown-container {
         grid-template-columns: repeat(2, 1fr);
@@ -535,12 +506,6 @@
       <div class="xv-tag">Mis XV Años</div>
       <h1 class="name-title">Karla Michelle</h1>
       <div class="lastname">Rodríguez Palos</div>
-
-      <!-- TARJETA DINÁMICA DE INVITADO -->
-      <div class="guest-welcome-box">
-        <span class="guest-label">Invitación Especial Para:</span>
-        <div class="guest-name-display" id="guestName">Nuestros Apreciados Invitados</div>
-      </div>
 
       <div class="divider">
         <div class="divider-line"></div>
@@ -661,7 +626,7 @@
             <h3>Confirmación de Asistencia</h3>
             <p>495 118 3826</p>
           </div>
-          <a class="btn" id="whatsappBtn" href="https://wa.me/524951183826" target="_blank" rel="noopener" style="max-width: 280px;">Confirmar por WhatsApp</a>
+          <a class="btn" href="https://wa.me/524951183826?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Karla%20Michelle." target="_blank" rel="noopener" style="max-width: 280px;">Confirmar por WhatsApp</a>
         </div>
       </div>
 
@@ -674,25 +639,6 @@
   </div>
 
   <script>
-    // --- LECTURA DEL NOMBRE DESDE LA URL ---
-    const urlParams = new URLSearchParams(window.location.search);
-    const nombreInvitado = urlParams.get('invitado') || urlParams.get('n');
-
-    const guestDisplay = document.getElementById('guestName');
-    const whatsappBtn = document.getElementById('whatsappBtn');
-
-    if (nombreInvitado) {
-      guestDisplay.textContent = nombreInvitado;
-      
-      // Personaliza también el mensaje predeterminado al presionar confirmar por WhatsApp
-      const mensajeWA = encodeURIComponent(`Hola, confirmo la asistencia de ${nombreInvitado} a los XV años de Karla Michelle.`);
-      whatsappBtn.href = `https://wa.me/524951183826?text=${mensajeWA}`;
-    } else {
-      // Mensaje predeterminado de WhatsApp si entra sin parámetro de nombre
-      whatsappBtn.href = `https://wa.me/524951183826?text=${encodeURIComponent("Hola, confirmo mi asistencia a los XV años de Karla Michelle.")}`;
-    }
-
-    // --- CUENTA REGRESIVA ---
     const target = new Date("2026-08-15T19:00:00-06:00").getTime();
 
     function updateCountdown() {
